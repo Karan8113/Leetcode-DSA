@@ -1,41 +1,30 @@
 class Solution {
 public:
     bool canBeValid(string s, string locked) {
-        stack<int> openSt;
-        stack<int> openCloseSt;
-
         int n=s.length();
-
         if(n%2!=0)return false;
-
+        int open=0,close=0;
         for(int i=0;i<n;i++){
-            if(locked[i]=='0'){
-                openCloseSt.push(i);
+            if(s[i]=='('||locked[i]=='0'){
+                open++;
             }
             else{
-                if(s[i]=='('){
-                    openSt.push(i);
-                }
-                else{
-                    if(!openSt.empty()){
-                        openSt.pop();
-                    }
-                    else if(!openCloseSt.empty()){
-                        openCloseSt.pop();
-                    }
-                    else{
-                        return false;
-                    }
-                }
+                open--;
+                if(open<0)return false;
             }
         }
 
-        while(!openSt.empty()&&!openCloseSt.empty() && openSt.top()<openCloseSt.top()){
-            openSt.pop();
-            openCloseSt.pop();
+        for(int i=n-1;i>=0;i--){
+            if(s[i]==')'||locked[i]=='0'){
+                close++;
+            }
+            else{
+                close--;
+                if(close<0)return false;
+            }
         }
 
-        return openSt.empty();
+        return true;
         
     }
 };
