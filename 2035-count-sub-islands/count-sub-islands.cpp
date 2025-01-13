@@ -1,7 +1,6 @@
 class Solution {
 public:
     int row,col;
-
     void DFS(int r,int c,vector<vector<int>>& grid1, vector<vector<int>>& grid2){
         if(r<0 || r>=row || c<0 || c>=col || grid1[r][c]!=1 || grid2[r][c]!=1 )return;
 
