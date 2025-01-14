@@ -39,7 +39,12 @@ public:
         unordered_map<int,vector<int>> mp;
         vector<int> inDeg(n,0);
         int len=prerequisites.size();
-
+        vector<int> res(n,0);
+        if(len==0){
+            for(int i=0;i<n;i++){
+                res[i]=i;
+            }
+        }
 
         for(int i=0;i<len;i++){
             mp[prerequisites[i][1]].push_back(prerequisites[i][0]);
