@@ -12,11 +12,13 @@ public:
             }
         }
 
-        vector<int> ans;
+        vector<int> ans(n,0);
+        int it=0;
         while(!q.empty()){
             int v=q.front();
             q.pop();
-            ans.push_back(v);
+            ans[it]=v;
+            it++;
             for(auto ele:mp[v]){
                 inDeg[ele]--;
                 if(inDeg[ele]==0){
@@ -26,10 +28,8 @@ public:
             }
         }
 
-        if(count==n){
-            return ans;
-        }
-        return {};
+        vector<int> empty;
+       return count==n?ans:empty;
 
         
 
