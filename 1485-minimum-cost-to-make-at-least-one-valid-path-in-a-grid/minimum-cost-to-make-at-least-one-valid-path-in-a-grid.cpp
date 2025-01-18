@@ -24,7 +24,7 @@ public:
         vector<vector<int>> cost(m,vector<int>(n,INT_MAX));
         vector<vector<int>> visited(m,vector<int>(n,0));
         cost[0][0]=0;
-        int curRow,curCol,curCost;
+        int curRow,curCol,curCost,first,sec;
         int newCost;
         while(!pq.empty()){
            
@@ -32,13 +32,13 @@ public:
             curRow=pq.top().second.first;
             curCol=pq.top().second.second;
 
-             pq.pop();
+            pq.pop();
             
 
             if(visited[curRow][curCol]==0){
                 for(int i=1;i<=4;i++){
-                    int first=mp[i].first;
-                    int sec=mp[i].second;
+                    first=mp[i].first;
+                    sec=mp[i].second;
 
                     if(isValid(curRow+first,curCol+sec)){
                         if(i==grid[curRow][curCol]){
@@ -48,13 +48,11 @@ public:
                             newCost = curCost + 1;
                         }
                         if(cost[curRow+first][curCol+sec]>newCost){
-                            cout<<curRow+first<<"  "<<curCol+sec<<"  "<<newCost<<endl;
                             cost[curRow+first][curCol+sec]=newCost;
                             pq.push({newCost,{curRow+first,curCol+sec}});
                         }                    
                     }
-                    
-                    
+   
                 }
 
             }
