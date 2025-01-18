@@ -11,7 +11,7 @@ public:
         m=grid.size();
         n=grid[0].size();
 
-        unordered_map<int,pair<int,int>> mp;
+        vector<pair<int,int>> mp(5,{0,0});
         mp[1]={0,1};
         mp[2]={0,-1};
         mp[3]={1,0};
