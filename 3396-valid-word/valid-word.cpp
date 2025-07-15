@@ -19,7 +19,7 @@ public:
         for(int i=0;i<word.length();i++){
             if(!isalnum(word[i]))return false;
             if(st.count(word[i]))vowel=true;
-            if(st.count(word[i])==0 && !isdigit(word[i]))consonent=true;
+            else if(isalpha(word[i]))consonent=true;
         }
 
         if(vowel && consonent)return true;
