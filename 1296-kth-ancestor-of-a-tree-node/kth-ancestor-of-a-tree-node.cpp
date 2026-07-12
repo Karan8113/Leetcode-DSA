@@ -1,11 +1,11 @@
 class TreeAncestor {
 public:
-    int n;
-    vector<int> parent;
+    //int n;
+    //vector<int> parent;
     vector<vector<int>> up;
     TreeAncestor(int n, vector<int>& parent) {
-        this->n=n;
-        this->parent=parent;
+       // this->n=n;
+        //this->parent=parent;
 
         int Log=0;
         while((1<<Log)<=n){
